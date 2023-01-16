@@ -1,0 +1,33 @@
+# 4. Strings
+s = 'Howdy'
+print(s)
+print(len(s))
+print(s[3])
+print(s[1:3])
+t = ' dude! '
+s += t
+print(s + '|')
+print(s.strip() + '|')
+s = s.rstrip('! ')
+print(s)
+s = 'Howdy dude!'
+print(s.lower())
+print(s.upper()[:5])
+print(s.title())
+print(s.replace('Howdy', 'Greetings'))
+print(s)
+print(s.count('d'))
+print(s.find('w'))
+print('dud' in s)
+print('X' not in s)
+print(s.startswith('How'))
+print(s.endswith('cat'))
+print(s > 'Honk')
+print(s.isalpha())
+print(s[0:4].isalpha())
+print(s.isnumeric())
+print(s.split())
+print('10,12,5'.split(','))
+print('645.25'.split('.'))
+print(s[0], '\t', s[1], '\t', s[2])
+print(s[:s.find(' ')] + '\n' + s[s.find(' ')+1:])
