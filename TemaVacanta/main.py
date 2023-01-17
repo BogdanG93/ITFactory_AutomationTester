@@ -1,6 +1,12 @@
 # import random
 #
-# print('Ex. 1')
+"""1.1 Creeaza 3 liste care sa contina animale:
+a. Mamifere
+b. Reptile
+c. Pasari
+"""
+from math import ceil
+
 # mamifere = ['cartita', 'arici', 'veverita', 'soarece']
 # reptile = ['limax', 'varan', 'lipitoare', 'gecko']
 # pasari = ['kiwi', 'sabot', 'cucuveaua', 'flamingo']
@@ -9,14 +15,15 @@
 # print(f'Mamifere: {mamifere}')
 # print(f'Reptile: {reptile}')
 # print(f'Pasari: {pasari}\n')
-#
+"""1.2. Sorteaza fiecare lista alphabetic"""
 # mamifere, reptile, pasari = sorted(mamifere), sorted(reptile), sorted(pasari)
 #
 # print('Am ordonat listele:')
 # print(f'Mamifere: {mamifere}')
 # print(f'Reptile: {reptile}')
 # print(f'Pasari: {pasari}\n')
-#
+"""1.3Creeaza alte 3 liste in care sa salvezi aceleasi elemente din primele 3 liste, 
+dar cuvintele sa fie pe dos. Exemplu insect_list = [“greiere”, “musca”] 🡪 insect_list_r = [“ereierg”, “acsum”]"""
 # mamifere_r, reptile_r, pasari_r = [], [], []
 #
 # for mamifer in mamifere:
@@ -34,8 +41,7 @@
 # print(f'mamifere_r: {mamifere_r}')
 # print(f'reptile_r: {reptile_r}')
 # print(f'pasari_r: {pasari_r}\n')
-#
-#
+"""1.4 Numara caracterele din fiecare element string din fiecare lista si afiseaza lista cu cele mai multe caractere."""
 # def count_len(lista_vietuitoare):
 #     len_list = 0
 #     for x in range(len(lista_vietuitoare)):
@@ -53,13 +59,16 @@
 #     print(f"Lista cu cele mai multe caractere este: {reptile}\n")
 # else:
 #     print(f"Lista cu cele mai multe caractere este: {pasari}\n")
-#
+"""1.5 Inlocuieste fiecare al doilea element din fiecare lista cu “I am an intruder”"""
 # mamifere[1] = reptile[1] = pasari[1] = "I am an intruder"
+"""1.6 Sa se amestece toate elementele random din prima lista. Poti folosi .shuffle()"""
 # random.shuffle(mamifere), random.shuffle(reptile), random.shuffle(pasari)
 # print('Listele cu elemente amestecate  + intruder:')
 # print(mamifere)
 # print(reptile)
 # print(pasari)
+"""Sa se parcurga lista si daca se gaseste elemental “I am an intruder”, 
+sa se returneze pozitia lui, sa se stearga din lista si sa se returneze mesajul “The intruder was kicked out”"""
 #
 #
 # def find_intruder(lista_vietuitoare):
@@ -85,7 +94,10 @@
 # find_and_del_intruder(reptile)
 # find_and_del_intruder(pasari)
 #
-# print("Ex. 2")
+"""
+2.1 Creeaza clasa animal cu 4 atribute si 2 metode
+2.2 Creeaza alte 3 clase care sa mosteneasca clasa animal si adauga inca o metoda
+"""
 #
 #
 # class Animal:
@@ -135,7 +147,8 @@
 #     def defineste_pesti(self):
 #         print('Peștii sunt creaturi cu sânge rece. Ei se deplaseaza prin apa cu ajutorul aripioarelor si a cozii.')
 
-# print("Ex. 3")
+"""Ex3. Sa se introduca un cuvant de la tastatura si sa se afiseze ce lungime are, 
+cate consoane, cate vocale are si daca are vreun numar in compozitie."""
 # word = input('Scrie un cuvant de la tastatura.')
 # print("Cuvantul are lungimea", len(word))
 # vocale = consoane = nr_in_char = 0
@@ -152,15 +165,15 @@
 
 """
 Ex4.
-1.   Sa se creeze un dictionar cu 5 carti care sa contina
+4.1 Sa se creeze un dictionar cu 5 carti care sa contina
 numele cartii, autorul, nr_pag, mesaj (daca este available sau nu)
-2.   Sa se creeze o functie care sa ii permita bibliotecarului sa poate adauga carti noi in biblioteca (dictionar).
-3.   Sa se creeze o functie care sa ii permita bibliotecarului sa poata sterge carti din biblioteca
-4.   Sa se creeze o functie care sa ii permita bibliotecarului
+4.2 Sa se creeze o functie care sa ii permita bibliotecarului sa poate adauga carti noi in biblioteca (dictionar).
+4.3 Sa se creeze o functie care sa ii permita bibliotecarului sa poata sterge carti din biblioteca
+4.4 Sa se creeze o functie care sa ii permita bibliotecarului
 sa introduca un nume de carte si sa verifice daca este available sau nu
 """
 # book1 = {'numele cartii': 'Animal farm', 'autorul': 'George Orwell', 'nr_pag': 130, 'mesaj': True}
-# book2 = {'numele cartii': 'The richest man in Babylon', 'autorul': 'George Samuel Clason', 'nr_pag': 144, 'mesaj': True}
+# book2 = {'numele cartii': 'The richest man in Babylon', 'autorul': 'George Clason', 'nr_pag': 144, 'mesaj': True}
 # book3 = {'numele cartii': 'Ghost in the wires', 'autorul': 'Kevin Mitnick', 'nr_pag': 448, 'mesaj': False}
 # book4 = {'numele cartii': 'Cuvinte care schimba minti', 'autorul': 'Shelle Charvet', 'nr_pag': 324, 'mesaj': False}
 # book5 = {'numele cartii': 'Winnetou', 'autorul': 'Karl May', 'nr_pag': 874, 'mesaj': True}
@@ -228,3 +241,53 @@ sa introduca un nume de carte si sa verifice daca este available sau nu
 #
 #     except ValueError:
 #         continue
+
+"""Ex5. – Medium
+Un user poate sa creeze o rezervare la restaurant care sa contina nume, data, ora, numar persoane, numar mese. 
+Numarul de mese se va calcula automat in functie de numarul de persone introdus de utilizator. 
+O masa stim ca poate sa aiba 6 locuri.
+Cand veti rula programul va aparea prima data un mesaj de genul:
+==== “Welcome to our restaurant restaurant_name” ====. 
+Puteti alege voi numele restaurantului si mesajul de welcome.
+Clientul va fi intrebat daca vrea sa faca o rezervare
+Daca raspunde nu, atunci va primi mesajul, “Maybe next time! Have a nice day!”
+Daca raspunde da, atunci va fi intrebat numele, data, ora si numarul de persoane.
+Dupa ce utilizatorul a introdus datele va fi anuntat ca rezervarea a fost creata:
+Reservation was created on the name X, on date Y, at Z hour for N persons.
+Sa se foloseasca functii.
+Sa se creeze si o functie care apelata va returna lista de rezervari.
+"""
+
+
+# reservation_list = {}
+#
+#
+# def greet_and_reserve():
+#     while True:
+#         print("Welcome to The Elusive Tester.")
+#         make_reservation = input("Do you want to make a reservation?\n1.Yes     2.No\n").lower()
+#         if make_reservation == "yes" or make_reservation == "1":
+#             name = input("On which name should the reservation be? ")
+#             print("When should we be expecting you?")
+#             date = input("Date: ")
+#             hour = input("Hour: ")
+#             no_of_persons = int(input("How many people? "))
+#             no_of_tables = ceil(no_of_persons / 6)
+#             print(f"Reservation was created on the name {name}, on date {date}, "
+#                   f"at {hour} hour for {no_of_persons} persons.")
+#             new_reservation = {"name": name, "date": date, "hour": hour, "number of persons": no_of_persons,
+#                                "number of tables": no_of_tables}
+#             reservation_add = "reservation" + " " + name
+#             reservation_list[reservation_add] = new_reservation
+#         else:
+#             print("Maybe next time! Have a nice day!")
+#             return False
+#
+#
+# def where_my_reservations_at():
+#     for reservation in reservation_list:
+#         print(f"{reservation}:{reservation_list[reservation]}")
+#
+#
+# greet_and_reserve()
+# where_my_reservations_at()

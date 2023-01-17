@@ -360,7 +360,8 @@ adauge.
 #
 #     def afiseaza_detalii_suplimentare(self, nume):
 #         if nume not in self.todo.keys():
-#             add_new_task = input(f"Task-ul cautat \"{nume}\" nu este in todo list. Vrei sa-l adaugam?\n1.Da     2.Nu\n").lower()
+#             add_new_task = input(f"Task-ul cautat \"{nume}\" nu este in todo list. Vrei sa-l adaugam?\n"
+#                                  f"1.Da     2.Nu\n").lower()
 #             if add_new_task == "da" or add_new_task == "1":
 #                 descriere = input("Adauga o descriere task-ului: ")
 #                 self.adauga_task(nume, descriere)
@@ -390,3 +391,4 @@ adauge.
 # dict2.afiseaza_detalii_suplimentare("make more coffee")
 # dict2.afiseaza_detalii_suplimentare("make more coffee")
 # dict2.afiseaza_todo_list()
+
