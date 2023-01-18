@@ -1,11 +1,12 @@
-# import random
-#
-"""1.1 Creeaza 3 liste care sa contina animale:
+import random
+from math import ceil
+
+""" OBLIGATORII
+1.1 Creeaza 3 liste care sa contina animale:
 a. Mamifere
 b. Reptile
 c. Pasari
 """
-from math import ceil
 
 # mamifere = ['cartita', 'arici', 'veverita', 'soarece']
 # reptile = ['limax', 'varan', 'lipitoare', 'gecko']
@@ -258,7 +259,6 @@ Sa se foloseasca functii.
 Sa se creeze si o functie care apelata va returna lista de rezervari.
 """
 
-
 # reservation_list = {}
 #
 #
@@ -291,3 +291,169 @@ Sa se creeze si o functie care apelata va returna lista de rezervari.
 #
 # greet_and_reserve()
 # where_my_reservations_at()
+
+"""OPTIONALE
+1. Avem urmatorul quizz de clasificare.
+a) Avem o lista de 20 de animale, care continue: mamifere, pasari, reptile, amfibieni.
+b) I se va afisa un utilizatorului un animal din lista si I se va cere sa il clasifice 
+in una din categoriile: mamifere, pasari, reptile, amfibieni.
+c) La sfarsit I se va afisa cate raspunsuri corecte a avut
+d) Daca raspunde correct, I se va afisa ca a raspuns correct
+e) Daca utilizatorul raspunde gresit, I se va spune ca a raspuns gresit si I se va da raspunsul correct.
+f) La sfarsit I se va acorda un rang:
+- 20 raspunsuri corecte: rank S 🡪 Congratulations! You got rank S! You are very knowledgeable about animals!
+- intre 16 – 19 (inclusiv): rank A 🡪 Congratulations! You got rank A!
+- 13 – 15 (inclusiv): rank B 🡪 Congratulations! You got rank B!
+- 10 – 12 (inclusiv): rank C 🡪 You got rank C!
+- 7 – 9 (inclusiv): rank D 🡪 You got rank D!
+- sub 6 (inclusiv): rank F 🡪 Unfortunately you got rank F!
+"""
+
+
+def initializeaza_lista():
+    lista = ["lama", "koala", "ras", "liliac", "porc",
+           "barza", "lebada", "gasca", "cormoran", "vultur",
+           "sarpe", "varan", "aligator", "crocodil", "vipera",
+           "broasca", "axolotl", "salamandra", "brotacel", "buhai"]
+    return lista
+
+
+vietati = initializeaza_lista()
+print("Bine ati venit la \"Animal Quizz\"!\n"
+      " Iti voi afisa un animal, tu trebuie sa-mi spui daca este mamifer, pasare, reptila sau amfibian.")
+
+
+def clasifica_animal(animal):
+    if animal == "lama" or animal == "koala" or animal == "ras" \
+            or animal == "liliac" or animal == "porc" or animal == 1:
+        animal = "mamifer"
+    elif animal == "barza" or animal == "lebada" or animal == "gasca" \
+            or animal == "cormoran" or animal == "vultur" or animal == 2:
+        animal = "pasare"
+    elif animal == "sarpe" or animal == "varan" or animal == "aligator" \
+            or animal == "crocodil" or animal == "vipera" or animal == 3:
+        animal = "reptila"
+    else:
+        animal = "amfibian"
+    return animal
+
+
+def sa_ne_jucam(lista, score):
+    while lista:
+        random_vietate = lista[random.randint(0, len(lista) - 1)]
+        clasificare_random_vietate = clasifica_animal(random_vietate)
+        print("Scotocim prin joben si scoatem din el un/o", random_vietate)
+        clasificare_animal = int(input("Alege un numar pentru a-l clasifica:\n"
+                                       "1. Mamifer    2. Pasare   3. Reptila  4. Amfibian\n"))
+        animal_clasificat_de_player = clasifica_animal(clasificare_animal)
+        if clasificare_random_vietate == animal_clasificat_de_player:
+            score += 1
+        lista.remove(random_vietate)
+    return score
+
+
+def acordare_rang(score):
+    print("Hope you had some fun. Your score is", score)
+    if score == 20:
+        print("Congratulations! You got rank S! You are very knowledgeable about animals!")
+    elif 19 >= score >= 16:
+        print("Congratulations! You got rank A!")
+    elif 15 >= score >= 13:
+        print("Congratulations! You got rank B!")
+    elif 12 >= score >= 10:
+        print("You got rank C!")
+    elif 9 >= score >= 7:
+        print("You got rank D!")
+    else:
+        print("Unfortunately you got rank F!")
+
+
+# scor = 0
+# scor_player = sa_ne_jucam(vietati, scor)
+# acordare_rang(scor_player)
+
+"""Aceeasi tema ca mai sus, dar mai dificila.
+Sa se inregistreze 2 jucatori cu username si parola.
+Sa se logheze cei 2 jucatori cu username si parola
+Primul username va incepe quiz-ul
+Se aplica aceleasi reguli ca la tema 1.
+Dupa ce termina userul 1 si I se aloca un rang, I se va cere user-ului 2 
+sa se prezinte la consola ca sa inceapa quizz-ul si I se va da intrebarea 1
+La final se vor compara rank-urile celor 2 jucatori si se vor afisa in ordine
+Jucatorului de pe locul al doilea I se va spune cate puncta diferenta exista intre el si jucatorul de pe primul loc.
+"""
+
+
+def creaza_cont():
+    new_user = input("User-ul dorit: ").lower()
+    new_password = input("Parola: ").lower()
+    print("Va rugam sa reintroduceti datele.")
+    verificare_new_user = input("User: ").lower()
+    verificare_new_password = input("Parola: ").lower()
+    if new_user == verificare_new_user and new_password == verificare_new_password:
+        print("V-ati logat cu succes.")
+        return new_user
+    else:
+        print("User sau parola incorecta.")
+        exit(0)
+
+
+scor = 0
+print("Pentru a putea juca in 2, este nevoie de a crea un cont pentru ambii jucatori.")
+
+single_or_double_play = input("Alegeti-va numarul de jucatori.\n"
+                              "Apasati \"1\" pentru solo play, \"2\" pentru a juca la dublu. ")
+
+if single_or_double_play == "1":
+    creare_cont = input("Doriti sa va creati un cont?\n1. Da    2. Nu\n")
+    if creare_cont == "1":
+        user = input("User-ul dorit: ").lower()
+        parola = input("Parola: ").lower()
+        print("Va rugam sa reintroduceti datele.")
+        verificare_user = input("User: ").lower()
+        verificare_parola = input("Parola: ").lower()
+        if user == verificare_user and parola == verificare_parola:
+            print("V-ati logat cu succes,", user)
+            scor_user = sa_ne_jucam(vietati, scor)
+            acordare_rang(scor_user)
+        else:
+            print("User sau parola incorecta.")
+            creare_guest = input("Doriti sa va jucati ca si guest?\n1. Da    2. Nu\n")
+            if creare_guest == "1" or creare_guest == "Da":
+                guest = "guest" + str(random.randint(1, 1000))
+                print("Bun venit", guest)
+                scor_guest = sa_ne_jucam(vietati, scor)
+                acordare_rang(scor_guest)
+            else:
+                print("Poate data viitoare.")
+                exit(0)
+    else:
+        creare_guest = input("Doriti sa va jucati ca si guest?\n1. Da    2. Nu\n")
+        if creare_guest == "1" or creare_guest == "Da":
+            guest = "guest" + str(random.randint(1, 1000))
+            print("Bun venit", guest)
+            scor_guest = sa_ne_jucam(vietati, scor)
+            acordare_rang(scor_guest)
+        else:
+            print("Poate data viitoare.")
+            exit(0)
+else:
+    if single_or_double_play == "2":
+        print("Player 1.")
+        user1 = creaza_cont()
+        print("Player 2.")
+        user2 = creaza_cont()
+        scor_user1 = sa_ne_jucam(vietati, scor)
+        acordare_rang(scor_user1)
+        scor = 0
+        vietati = initializeaza_lista()
+        scor_user2 = sa_ne_jucam(vietati, scor)
+        acordare_rang(scor_user2)
+        if scor_user1 > scor_user2:
+            print(user1, "a castigat, avand scorul de", scor_user1, "puncte.")
+            print("Felicitari si celuilalt player,", user2, "care a fost la diferenta de",
+                  str(scor_user1 - scor_user2), "puncte fata de", user1)
+        else:
+            print(user2, "a castigat, avand scorul de", scor_user2, "puncte.")
+            print("Felicitari si celuilalt player,", user1, "care a fost la diferenta de",
+                  str(scor_user2 - scor_user1), "puncte fata de", user2)
