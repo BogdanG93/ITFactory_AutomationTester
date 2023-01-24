@@ -1,95 +1,50 @@
 import random
-print('EXERCITII OBLIGATORII')
 
-# Pentru toate exercițiile se va folosi noțiunea de if în rezolvare.
-# Indirect vei exersa și operatorii în cadrul condițiilor ramurilor din if.
-# X poate fi inițializat direct în cod sau citit de la tastatură, după preferințe.
-# X este un int.
-print('1. Explică cu cuvintele tale în cadrul unui comentariu cum funcționează un if else.\n'
-      '"if else" functioneaza in cadrul a (fix) doua ramuri, in ideea de a acoperi \n'
-      'mai multe scenarii (ex. scenarii cu True/False)\n'
-      'if conditie -> executa cod\n'
-      'else (fara conditie)-> executa celalalt cod.')
+# OBLIGATORII
+# Ex:1 Explica cu cuvintele tale in cadrul unui comentariu cum functioneaza un if else
+print('"if else" functioneaza in cadrul a (fix) doua ramuri, in ideea de a acoperi mai multe scenarii\n'
+      'if conditie is True -> executa acest bloc de cod\nelse conditie -> executa celalalt bloc de cod')
 
+# Ex.2 Verifică și afișează dacă x este număr natural sau nu.
+a = 5
+if a >= 0 and type(a) == int:
+    print('Ai introdus numarul natural', a)
+else:
+    print('Nu ati introdus un numar natural. Te rog sa reincerci.')
 
-print('Ex.2 Verifică și afișează dacă x este număr natural sau nu.')
+# Ex.3 Verifică și afișează dacă x este număr pozitiv, negativ sau neutru.
+x = 12
+if x > 0:
+    print('Numarul este pozitiv.')
+elif x < 0:
+    print('Numarul este negativ.')
+else:
+    print('Numarul este neutru.')
 
-def NrNatural():
-    a = input('Introduce un nr. natural.')
-    if a.isnumeric():
-        print('Ai introdus numarul natural', a)
-    else:
-        print('Nu ati introdus un numar natural. Te rog sa reincerci.')
-        NrNatural()
-
-NrNatural()
-
-
-print()
-print('Ex.3 Verifică și afișează dacă x este număr pozitiv, negativ sau neutru.')
-
-def VerificaNumar():
-    try:
-        global x
-        x = int(input('Introduce un numar.'))
-    except ValueError:
-        print('Nu ai introdus un numar natural. Te rog sa reincerci.')
-        VerificaNumar()
-
-def PozNeNeu():
-    VerificaNumar()
-    print('Ai introdus numarul', x)
-    if x == 0:
-        print('Acesta este neutru.')
-    elif x > 0:
-        print('Acesta este un numar pozitiv.')
-    else:
-        print('Ati introdus un numar negativ.')
-
-PozNeNeu()
-
-
-print()
-print('Ex.4 Verifică și afișează dacă x este între -2 și 13.')
-
-VerificaNumar()
-print('Ai introdus numarul', x)
+# Ex.4 Verifică și afișează dacă x este între -2 și 13
+x = 7
 if -2 <= x <= 13:
     print('x se afla intre valorile "-2" si "13".')
 else:
     print('x nu se afla intre valorile "-2" si "13".')
 
-
-print()
-print('Ex.5 Verifică și afișează dacă diferența dintre x și y este mai mică de 5.')
-
-VerificaNumar()
-print('Ai introdus numarul', x)
-y = 10
-print(f'Diferenta dintre {x} si {y} este:', x - y)
+# Ex.5 Verifică și afișează dacă diferența dintre x și y este mai mică de 5.
+x = 7
+y = 4
 if x - y < 5:
     print('Diferenta dintre x si y este mai mica de 5.')
 else:
-    print('Diferenta dintre x si y este nu este mai mica de 5.')
+    print('Diferenta dintre x si y nu este mai mica de 5.')
 
+# Ex.6 Verifică dacă x NU este între 5 și 27 - (a se folosi ‘not’)
+x = 3
+if not (5 < x < 27):
+    print(x, "nu este intre 5 si 27.")
 
-print()
-print('Ex.6 Verifică dacă x NU este între 5 și 27 - a se folosi ‘not’.')
-
-VerificaNumar()
-print('Ai introdus numarul', x)
-if not(5 < x < 27):
-    print("x NU este intre 5 si 27.")
-else:
-    print("x este intre 5 si 27.")
-
-
-print()
-print('Ex.7 x și y (int)\n'
-      'Verifică și afișează dacă sunt egale, dacă nu afișează care din ele este mai mare.')
-
-VerificaNumar()
-y = int(input('Introduce un nr. de tipul "int" de la tastatura.'))
+# Ex.7 Declara o noua variabila y de tip int si apoi verifica si afiseaza
+# daca x si y sunt egale, daca nu, afiseaza care din ele este mai mare
+x = int(input('Alege valoarea lui x. '))
+y = int(input('Alege valoarea lui y. '))
 if x == y:
     print("x si y sunt nr. egale.")
 elif x > y:
@@ -97,270 +52,208 @@ elif x > y:
 else:
     print('x este mai mic decat y.')
 
-
-print()
-print('Ex.8 8. x, y, z - laturile unui triunghi.\n'
-      'Afișează dacă triunghiul este isoscel, echilateral sau oarecare.')
-
-def ConstruireTriunghi():
-    x = int(input('Alege valoarea lui int(x).'))
-    y = int(input('Alege valoarea lui int(y).'))
-    z = int(input('Alege valoarea lui int(z).'))
-    if (x, y, z > 0) and not (x > y + z) and not (y > x + z) and not (z > x + y):
-        if x == y == z:
-            print('Triunghiul este echilateral.')
-        elif (x == y) or (x == z) or (y == z):
-            print('Triunghiul este isoscel.')
-        else:
-            print('Triunghiul este oarecare.')
+# Ex.8 Presupunand ca x, y, z (toate de tip int) - reprezinta laturile unui triunghi, afiseaza daca triunghiul
+# este isoscel (doua laturi sunt egale), echilateral (toate laturile sunt egale) sau oarecare (nicio latura nu e egala).
+x = int(input('Alege valoarea lui x. '))
+y = int(input('Alege valoarea lui y. '))
+z = int(input('Alege valoarea lui z. '))
+if (x, y, z > 0) and not (x > y + z) and not (y > x + z) and not (z > x + y):
+    if x == y == z:
+        print('Triunghiul este echilateral.')
+    elif (x == y) or (x == z) or (y == z):
+        print('Triunghiul este isoscel.')
     else:
-        print('Nu putem construi un triunghi folosind aceste valori ale laturilor.')
-        print('Reintrodu alte valori.')
-        ConstruireTriunghi()
+        print('Triunghiul este oarecare.')
+else:
+    print('Nu putem construi un triunghi folosind aceste valori ale laturilor.')
 
-ConstruireTriunghi()
-
-
-print()
-print('Ex.9 Citește o literă de la tastatură.\n'
-      'Verifică și afișează dacă este vocală sau nu')
-
-def OneChar():
-    global litera
-    litera = input('Introduceti o litera.')
-    if (litera.isalpha()) and (litera[0] == litera):
-        print('Ai introdus litera', litera)
-    else:
-        print('Ai introdus una sau mai multe cifre/spatii sau mai mult de o litera, reincearca.')
-        OneChar()
-
-def VerificareVocala():
-    OneChar()
+# Ex.9 - Citeste o litera de la tastatura apoi verifica si afiseaza daca este vocala sau nu
+litera = input('Introduceti o litera. ')
+if (litera.isalpha()) and (litera[0] == litera):
     if litera[0].lower() in ['a', 'ă', 'â', 'e', 'i', 'î', 'o', 'u']:
         print('Litera introdusa este o vocala.')
     else:
         print('Litera introdusa este o consoana.')
-
-VerificareVocala()
-
-
-print()
-print('Ex.10 Transformă și printează notele din sistem românesc în >\n'
-      'Peste 9 => A\n'
-      'Peste 8 => B\n'
-      'Peste 7 => C\n'
-      'Peste 6 => D\n'
-      'Peste 4 => E\n'
-      '4 sau sub => F')
-
-nota = float(input('Care este ultima nota obtinuta la matematica? (se va salva de tip float)'))
-if nota > 10:
-    print('Am luat ce nota am vrut eu.')
 else:
-    if nota > 9:
-        print('Am luat nota A.')
-    elif nota > 8:
-        print('Am luat nota B.')
-    elif nota > 7:
-        print('Am luat nota C.')
-    elif nota > 6:
-        print('Am luat nota D.')
-    elif nota > 4:
-        print('Am luat nota E.')
-    elif nota <= 4:
-        print('Am luat nota F.')
+    print('Ai introdus una sau mai multe cifre/spatii sau mai mult de o litera, reincearca.')
 
-print()
-print('EXERCITII OPTIONALE:')
+# Ex. 10 Transforma si printeaza notele din sistem românesc in sistem american dupa cum urmeaza:
+# Peste 9 => A
+# Peste 8 => B
+# Peste 7 => C
+# Peste 6 => D
+# Peste 4 => E
+# 4 sau sub => F
+nota = float(input('Care este nota primita? '))
+if 10 >= nota > 9:
+    print('Am luat nota A.')
+elif nota > 8:
+    print('Am luat nota B.')
+elif nota > 7:
+    print('Am luat nota C.')
+elif nota > 6:
+    print('Am luat nota D.')
+elif nota > 4:
+    print('Am luat nota E.')
+elif nota <= 4:
+    print('Am luat nota F.')
+else:
+    print("Nu ati introdus o nota de la 0 la 10.")
 
-print('Ex.1 Verifică dacă x are minim 4 cifre (x e int).\n'
-      '(ex: 7895 are 4 cifre, 10 nu are minim 4 cifre)')
+# OPTIONALE
+# Ex:1 - Verifica daca x are minim 4 cifre (ex: 7895 are 4 cifre, 10 nu are minim 4 cifre)
+x = int(input('Alege valoarea lui x. '))
+if abs(x) <= 3:
+    print('Numarul introdus nu are 4 cifre.')
+else:
+    print('Numarul introdus are 4 cifre.')
 
-def VerificaMinimCifre():
-    VerificaNumar()
-    if len(str(x)) <= 3:
-        print('Numarul introdus este sub minimul de 4 cifre, reincearca.')
-        VerificaMinimCifre()
-    else:
-        print('Ai introdus un numar de minim 4 cifre.')
+# Ex.2 Verifică dacă x are exact 6 cifre.
+x = 542176
+if len(str(x)) == 6:
+    print('Are 6 cifre.')
+else:
+    print('Nu are 6 cifre.')
 
-VerificaMinimCifre()
-
-
-print()
-print('Ex.2 Verifică dacă x are exact 6 cifre.')
-
-def VerificaMinimCifre2():
-    VerificaNumar()
-    if len(str(x)) == 6:
-        print('Numarul introdus este are exact 6 cifre.')
-
-    else:
-        print('Ai introdus un numar care nu are exact 6 cifre, reincearca.')
-        VerificaMinimCifre2()
-
-VerificaMinimCifre2()
-
-
-print()
-print('Ex.3 Verifică dacă x este număr par sau impar (x e int).')
-
-VerificaNumar()
+# Ex.3 Verifică dacă x este număr par sau impar
+x = 23
 if x % 2 == 0:
-    print('x este numar par.')
+    print('Numarul este par.')
 else:
-    print('x este numar impar.')
+    print('Numarul este impar.')
 
+# Ex:4 Avand trei variabile x, y, z (toate int) afiseaza in consola care este cel mai mare dintre ele
+x = int(input('Alege valoarea lui x. '))
+y = int(input('Alege valoarea lui y. '))
+z = int(input('Alege valoarea lui z. '))
+if x >= y and x >= z:
+    print(f'{x} este cel mai mare numar.')
+elif y >= x and y >= z:
+    print(f'{y} este cel mai mare numar.')
+else:
+    print(f'{z} este cel mai mare numar.')
 
-print()
-print('Ex.4 x, y, z (int)\n'
-      'Afișează care este cel mai mare dintre ele?')
+# # Ex.5 - Presupunand ca x, y, z - reprezinta unghiurile unui triunghi,
+# verifica si afiseaza daca triunghiul este valid sau nu
+# (un triunghi este valid daca suma tuturor unghiurilor este de 180 de grade
+# sau daca suma lungimilor a oricare doua laturi este mai mare decat lungimea celei de-a treia laturi)
+x = int(input('Alege valoarea primului unghi. '))
+y = int(input('Alege valoarea celui de-al doilea unghi. '))
+z = int(input('Alege valoarea celui de-al treilea unghi. '))
+if x + y + z == 180 and x > 0 and y > 0 and z > 0:
+    print('Triunghiul este valid.')
+else:
+    print('Triunghiul nu este valid.')
 
-def VerificaNumarulCelMaiMare():
-    x = int(input('Alege valoarea lui int(x).'))
-    y = int(input('Alege valoarea lui int(y).'))
-    z = int(input('Alege valoarea lui int(z).'))
-    if x > y:
-        if x > z:
-            print('x este cel mai mare numar.')
-        elif x == z:
-            print('x si z sunt numere egale si sunt mai mari decat y.')
-        else:
-            print('z este cel mai mare numar.')
-    elif y > z:
-        if y > x:
-            print('y este cel mai mare numar.')
-        elif x == y:
-            print('x si y sunt numere egale si sunt mai mari decat z.')
-        else:
-            print('x este cel mai mare numar.')
-    elif z > x:
-        if z > y:
-            print('z este cel mai mare numar.')
-        elif y == z:
-            print('y si z sunt numere egale si sunt mai mari decat x.')
-        else:
-            print('y este cel mai mare numar.')
-    else:
-        print('Avem 3 numere egale.')
-
-
-VerificaNumarulCelMaiMare()
-
-
-print()
-print('Ex.5 x, y, z - reprezintă unghiurile unui triunghi\n'
-      'Verifică și afișează dacă triunghiul este valid sau nu.')
-
-ConstruireTriunghi()
-
-
-print()
-print('Ex.6 Având stringul: "Coral is either the stupidest animal or the smartest rock"\n '
-      '● Citiți de la tastatură un int x\n'
-      '● Afișează stringul fără ultimele x caractere\n'
-      'Exemplu: daca ati ales 7 => "Coral is either the stupidest animal or the smarte"')
-
+'''Ex.6 Avand stringul: 'Coral is either the stupidest animal or the smartest rock' 
+citește de la tastatura un număr x de tip int și afișează stringul fără ultimele x caractere. 
+ex: dacă ați ales 7 se va afisa urmatorul string: 'Coral is either the stupidest animal or the smarte' '''
 original_string = 'Coral is either the stupidest animal or the smartest rock'
-size_string = len(original_string)
-print(f'Avem string-ul: "{original_string}"')
-cut = int(input('Cate caractere vreti sa taiem din finalul stringului?'))
-modified_string = original_string[:size_string - cut]
-print(f'String-ul modificat este: "{modified_string}"')
+cut = int(input('Cate caractere vreti sa taiem din finalul stringului? '))
+print(original_string[0:-cut])
 
-
-print()
-print('Ex.7 Același string. Declară un string nou care să fie format din primele 5 caractere + ultimele')
-
-first_slice, last_slice = slice(0, 5), slice(-5, len(original_string))
-new_string = original_string[first_slice] + original_string[last_slice]
+# Ex. 7 Folosindu-te de același string de la exercițiul 6,
+# declara un string nou care sa fie format din primele 5 caractere + ultimele 5
+string = 'Coral is either the stupidest animal or the smartest rock'
+new_string = string[0:5] + string[-5:]
 print(f'String-ul nou format din primele 5 + ultimele 5 caractere este: "{new_string}"')
 
+'''Ex:8 Folosindu-te de același string de la exercițiul 6, salvează într-o variabila și afiseaza indexul de start 
+al cuvântului rock - adică poziția in string la care începe cuvântul rock 
+(hint: este o funcție care te ajuta sa faci asta). 
+Folosind aceasta variabila + slicing, afișează tot stringul pana la acest cuvant. 
+Output asteptat: 'Coral is either the stupidest animal or the smartest ' '''
+string = 'Coral is either the stupidest animal or the smartest rock'
+rock_index = string.index("rock")
+print(string[:rock_index])
 
-print()
-print('Ex.8. Același string.\n'
-      '● Salvează într-o variabilă și afișează indexul de start al cuvântului rock (hint: este o funcție care te ajuta sa faci asta)\n'
-      '● Folosind această variabilă + slicing, afișează tot stringul până la acest cuvant\n'
-      '● output: "Coral is either the stupidest animal or the smartest "')
+# Ex.9 Citeste de la tastatura un string si verifica daca primul și ultimul caracter sunt la fel.
+# Se va folosi un assert.
+# Atentie: se dorește ca programul sa fie case insensitive,
+# adica 'apA' e acceptat ca un string in care primul si ultimul caracter este la fel
+# (hint, te poti folosi de o functie pentru a face string-ul case insensitive)
+string = input('Scrie o propozitie/fraza de la tastatura. ')
+assert string[0].lower() ==string[len(string)-1].lower(), 'Primul si ultimul caracter sunt diferite'
 
-rock_index = original_string.index("rock")
-slice_to_rock = slice(0, rock_index)
-print('Indexul de start al cuvantului rock este: ', rock_index)
-print('Afisam tot string-ul pana la indexul de start al cuvantului rock: ')
-print(original_string[slice_to_rock])
-
-
-print()
-print('Ex.9 Citește de la tastatura un string\n'
-      'Verifică dacă primul și ultimul caracter sunt la fel. Se va folosi un assert\n'
-      'Atentie: se dorește ca programul sa fie case insensitive - "apA" e acceptat')
-fraza_random = input('Scrie o propozitie/fraza de la tastatura.')
-
-if (fraza_random[0].lower() == fraza_random[len(fraza_random)-1].lower()):
-    print(f'Primul si ultimul caracter din "{fraza_random}" sunt la fel.')
-else:
-    print(f'Primul si ultimul caracter din "{fraza_random}" nu sunt la fel.')
-
-
-print()
-print('Ex.10 Avand stringul "0123456789"\n'
-      '● Afișați doar numerele pare\n'
-      '● Afișați doar numerele impare\n'
-      '(hint: folositi slicing, controlați din pas)')
-
+# Ex: 10 Avand stringul '0123456789' afiseaza doar numerele pare si apoi doar numerele impare
+# (hint: foloseste slicing si controleaza afisarea in slicing cu slicing step)
 string_numere = '0123456789'
-print('String-ul format din numere este: ', string_numere)
-par, impar = list(string_numere[0::2]), list(string_numere[1::2])
-print('Numere pare: ', par)
-print('Numere impare: ', impar)
+print('Numere pare: ', string_numere[0::2])
+print('Numere impare: ', string_numere[1::2])
 
-print()
-print('BONUS: Joc ghicit zarul\n'
-      'Caută pe net și vezi cum se generează un număr random\n'
-      'Ne imaginăm ca dai cu zarul și salvăm acest număr în dice_roll\n'
-      'Luați un numărul ghicit de la utilizator\n'
-      'Verificați și afișați dacă utilizatorul a ghicit\n'
-      'Veți avea 3 opțiuni\n'
-      '● Ai pierdut. Ai ales un numar mai mic. Ai ales x dar a fost y\n'
-      '● Ai pierdut. Ai ales un numar mai mare. Ai ales x dar a fost y\n'
-      '● Ai ghicit. Felicitari! Ai ales x si zarul a fost y')
+# Ex.1 - Vrem sa cream o aplicatie pentru achizitionare bilete de avion
+# care sa primeasca drept inputuri urmatoarele informatii:
+# Varsta
+# Insotit de mama
+# Insotit de tata
+# Pasaport
+# Act permisiune mama
+# Act permisiune tata
+#
+# Conditii de imbarcare:
+# Daca pers are varsta peste 18 ani si are pasaport
+# Daca pers are sub 18 ani, are pasaport si e insotita de ambii parinti
+# Daca pers are sub 18 ani, are pasaport, e insotita de cel putin un parinte
+# si are permisiune in scris de la celalat parinte
+#
+# Scrie codul care implementeaza conditiile de imbarcare de mai sus si testeaza-l
+# cu toate variantele care crezi ca ar trebui testate.
+# Genereaza scenarii de testare cu expected results si apoi ruleaza codul pentru a verifica
+# daca expected results sunt egale cu actual results.
+#
+# Exemple:
+# Varsta 19 ani, nu am pasaport => Nu ma pot imbarca
+# Varsta 17 ani, am pasaport, ambii parinti => Ma pot imbarca
 
-score = 0
-def AruncaZarul():
-    zar_in_mana = input('Dai cu zarul?\n'
-                        '1. Da\n'
-                        '2. Nu')
-
-    if zar_in_mana == '1' or zar_in_mana == 'da' or zar_in_mana == 'Da' or zar_in_mana == 'ok':
-        dice_roll = random.randint(1, 6)
+varsta = int(input("Va rugam sa introduceti varsta pasagerului. "))
+pasaport_valid = input("E pasaportul valid? Da/Nu ").lower()
+if varsta >= 18 and pasaport_valid == "da":
+    print("Va puteti imbarca")
+elif varsta < 18 and pasaport_valid == "da":
+    ambii_parinti = input("E copilul insotit de ambii parinti? Da/Nu ").lower()
+    if ambii_parinti == "da":
+        print("Va puteti imbarca.")
     else:
-        print('Good for you. Gambling is bad, \'mkay?')
-        print('You sure though? We needz da money.')
-        raspuns = input('Continue?\n'
-                        '1. Yes, continue.\n'
-                        '2. No, I give up.')
-        if raspuns == '1' or raspuns == 'Yes' or raspuns == 'yes' or raspuns == 'ok':
-            AruncaZarul()
+        permisiune = input("Aveti ermisiunea celuilalt parinte? Da/Nu ").lower()
+        if permisiune == "da":
+            print("Va puteti imbarca.")
         else:
-            exit(0)
-    ghiceste_zarul = int(input('Ce numar crezi ca a iesit?'))
-    if dice_roll == ghiceste_zarul:
-        print(f'Ai ghicit. Felicitari! Ai ales {ghiceste_zarul} si zarul a fost {dice_roll}.')
-        global score
-        score += 1
-        print(f'Scorul actual: ', score)
-    elif dice_roll > ghiceste_zarul:
-        print(f'Ai pierdut. Ai ales un numar mai mic. Ai ales {ghiceste_zarul}, dar a fost {dice_roll}.')
-    else:
-        print(f'Ai pierdut. Ai ales un numar mai mare. Ai ales {ghiceste_zarul}, dar a fost {dice_roll}.')
-    next_game = input('Vrei sa incepi o noua runda?\n'
-                      '1. Da\n'
-                      '2. Nu')
-    if next_game == '1' or next_game == 'da' or next_game == 'Da' or next_game == 'ok':
-        AruncaZarul()
-    else:
-        print('NU ne asumam nicio responsabilitate cu privire la starea de dependenta pe care o da acest joc.')
-        print('Pentru alte probleme de tip financiar adresati-va bancilor sau "rechinilor".')
-        exit(0)
+            print("Nu va puteti imbarca.")
+else:
+    print("Nu va puteti imbarca.")
 
-AruncaZarul()
+""" Scenarii de testare:
+1. Adult >= 18 ani cu pasaport valid => Se poate imbarca
+2. Adult >= 18 ani cu pasaport invalid => Nu se poate imbarca
+3. Copil cu pasaport valid si ambii parinti => Se poate imbarca
+4. Copil cu pasaport valid si un singur parinte - permisiune parinte lipsa => Se poate imbarca
+5. Copil cu pasaport valid si un singur parinte - fara permisiune parinte lipsa => Nu se poate imbarca
+6. Copil fara pasaport valid => Nu se poate imbarca
+"""
+
+""" Ex.2 Joc de noroc
+- Cauta pe net si vezi cum se genereaza un numar random
+- Imagineaza-ti ca dai cu zarul si salvezi acest numar intr-o variabila numita dice_roll.
+Numarul salvat va fi generat random cu metoda gasita in online
+- Introdu un numar de la tastatura care sa reprezinte numarul ales de la utilizator
+- Verifica si afiseaza daca utilizatorul a ghicit numarul
+- Vor exista 3 optiuni care vor trebui tratate:
+● Ai pierdut. Ai ales un numar mai mic. Ai ales x dar a fost y
+● Ai pierdut. Ai ales un numar mai mare. Ai ales x dar a fost y
+● Ai ghicit. Felicitari? Ai ales x si zarul a fost y"""
+zar_in_mana = input('Dai cu zarul?\n'
+                    '1. Da      2. Nu\n').lower()
+
+if zar_in_mana == '1' or zar_in_mana == 'da':
+    dice_roll = random.randint(1, 6)
+else:
+    print('Ok. Bye!')
+    exit(0)
+
+ghiceste_zarul = int(input('Ce numar crezi ca a iesit? '))
+if dice_roll == ghiceste_zarul:
+    print(f'Ai ghicit. Felicitari! Ai ales {ghiceste_zarul} si zarul a fost {dice_roll}.')
+elif dice_roll > ghiceste_zarul:
+    print(f'Ai pierdut. Ai ales un numar mai mic. Ai ales {ghiceste_zarul}, dar a fost {dice_roll}.')
+else:
+    print(f'Ai pierdut. Ai ales un numar mai mare. Ai ales {ghiceste_zarul}, dar a fost {dice_roll}.')
