@@ -242,7 +242,8 @@ while True:
                 print("Cartea nu se afla in biblioteca.")
 
         else:
-            exit(0)
+            # exit(0)   # uncomment if you want the program to exit after you've finished
+            break
 
     except ValueError:
         continue
@@ -456,8 +457,11 @@ else:
         if scor_user1 > scor_user2:
             print(user1, "a castigat, avand scorul de", scor_user1, "puncte.")
             print("Felicitari si celuilalt player,", user2, "care a fost la diferenta de",
-                  str(scor_user1 - scor_user2), "puncte fata de", user1)
-        else:
+                  scor_user1 - scor_user2, "puncte fata de", user1)
+        elif scor_user1 < scor_user2:
             print(user2, "a castigat, avand scorul de", scor_user2, "puncte.")
             print("Felicitari si celuilalt player,", user1, "care a fost la diferenta de",
-                  str(scor_user2 - scor_user1), "puncte fata de", user2)
+                  scor_user2 - scor_user1, "puncte fata de", user2)
+        else:
+            print(f"Felicitari! Atat {user1}, cat si {user2} au acelasi numar de puncte, {scor_user1} = {scor_user2},"
+                  f"jocul s-a terminat la egalitate.")
